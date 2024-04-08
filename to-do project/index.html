@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-Do List</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<h1>to-dos</h1>
+		<!-- to-do instructions -->
+		<small
+			>Click on the Add button to add to-do.
+			<br />
+			Click on a to-do to toggle to complete(to-do turns red ).
+			<br />Click the delete button to delete the to-do.<br />Click the edit
+			button to edit to-do.<br />
+			NOTE: to-dos should be short and precise.</small
+		>
+		<!--to-do main form -->
+		<form id="form">
+			<p class="counts-display"></p>
+			<div class="input-container">
+				<input
+					type="text"
+					id="input"
+					class="input"
+					placeholder="Enter your to-do"
+					maxlength="18"
+					autocomplete="off"
+				/>
+				<span class="icon-c">
+					<button class="add-btn">Add</button>
+				</span>
+			</div>
+			<!-- to-do display list -->
+			<ul class="todos" id="todos"></ul>
+		</form>
+	</body>
+</html>
