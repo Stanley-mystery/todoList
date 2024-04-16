@@ -4,12 +4,12 @@ const todosUL = document.getElementById("todos");
 const addBtn = document.querySelector(".add-btn");
 const countDisplay = document.querySelector(".counts-display");
 
-// adding todos to local Storage
 const todos = JSON.parse(localStorage.getItem("todos"));
 
+// looping through todos to get each todo
 if (todos) {
 	todos.forEach((todo) => {
-		addTodo(todo);
+		handleEvents(todo);
 	});
 }
 
@@ -18,12 +18,12 @@ addBtn.addEventListener("click", (e) => {
 	if (input.value === "") {
 		alert("Please you must insert something in the input provided.");
 	} else {
-		addTodo();
+		handleEvents();
 	}
 });
 
-// add todo and display todo function
-function addTodo(todo) {
+// handling events function
+function handleEvents(todo) {
 	let todoText = input.value.toLowerCase();
 
 	if (todo) {
@@ -58,7 +58,7 @@ function addTodo(todo) {
 		paragraph.addEventListener("click", () => {
 			todoEl.classList.toggle("completed");
 
-			updateLS();
+			updatetodos();
 		});
 
 		// delete todo event control
@@ -71,7 +71,7 @@ function addTodo(todo) {
 
 			todoEl.remove();
 
-			updateLS();
+			updatetodos();
 		});
 
 		// edit todo  event control
@@ -100,11 +100,12 @@ function addTodo(todo) {
 
 		input.value = "";
 
-		updateLS();
+		updatetodos();
 	}
 }
 
-function updateLS() {
+//
+function updatetodos() {
 	const todosEl = document.querySelectorAll("li");
 
 	const todos = [];
@@ -125,4 +126,4 @@ function updateLS() {
 
 	localStorage.setItem("todos", JSON.stringify(todos));
 }
-updateLS();
+updatetodos();
